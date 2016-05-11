@@ -64,7 +64,14 @@ var Engine = (function(global) {
      * game loop.
      */
     function init() {
+
+        document.getElementById('play-again').addEventListener('click', function() {
         reset();
+        });//I added
+        document.getElementById('game-over').style.display = 'none';//I added
+        document.getElementById('game-over-overlay').style.display = 'none';//I added
+
+        //reset();//I took off
         lastTime = Date.now();
         main();
     }
@@ -160,6 +167,11 @@ var Engine = (function(global) {
      */
     function reset() {
         // noop
+        document.getElementById('game-over').style.display = 'none';//I added
+        document.getElementById('game-over-overlay').style.display = 'none';//I added
+        player.reset();//I added
+        enemy.reset();//I added
+        //();
     }
 
     /* Go ahead and load all of the images we know we're going to need to
