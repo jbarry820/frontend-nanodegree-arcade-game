@@ -36,6 +36,7 @@ Enemy.prototype.update = function(dt) {
     if (this.x > 505) {
         this.reset();
     }
+    if (player.row === this.row && this.x + 101 > player.x) {
     if (player.row === this.row && (player.x >= this.x && player.x <= (this.x + 101))) {
         console.log(this.x, player.x);
         player.reset();
