@@ -2,18 +2,15 @@ var isGameOver;
 
 var Character = function() {
     'use strict';
-    //this.reset();
+    this.reset();
 };
 
-/*var Enemy = function() {
-    'use strict';
-    this.reset();
+var Enemy = function(){
     this.sprite = 'images/enemy-bug.png';
-};*/
-{}
-function Enemy() {}
+}
 
 Enemy.prototype = new Character();
+function Enemy()
 
 //Enemy = Object.create(Character.prototype);
 Enemy.prototype.constructor = Enemy;
@@ -21,7 +18,6 @@ Enemy.prototype.constructor = Enemy;
 Enemy.prototype.sprite = function() {
     this.sprite = 'images/enemy-bug.png';
 }
-//enemy = new Enemy();
 
 Enemy.prototype.reset = function() {
     'use strict';
@@ -53,22 +49,21 @@ Enemy.prototype.render = function() {
     //ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-/*var Player = function() {
-    'use strict';
-    this.reset();
+var Player = function(){
     this.sprite = 'images/char-boy.png';
-    this.moveable = true;
-};*/
-
-function Player() {}
+}
 
 Player.prototype = new Character();
+function Player()
 
 Player.prototype.constructor = Player;
 
 //Player.prototype = Object.create(Character.prototype);
 //Player.prototype.constructor = Player;
-Player.sprite = 'images/char-boy.png';
+Player.prototype.sprite = function() {
+    this.sprite = 'images/char-boy.png';
+};
+
 Player.moveable = true;
 
 Player.prototype.update = function() {
