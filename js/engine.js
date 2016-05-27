@@ -170,7 +170,7 @@ var Engine = (function(global) {
         document.getElementById('game-over').style.display = 'none';//I added
         document.getElementById('game-over-overlay').style.display = 'none';//I added
         player.reset();//I added
-        enemy.reset();//I added
+        //enemy.reset();//I added
         //();
     }
 
