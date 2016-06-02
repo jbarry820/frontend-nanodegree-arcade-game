@@ -1,16 +1,18 @@
 #Arcade Game "Frogger"
 
-##How to `play` the game.
-
 This is a classic arcade game built with object-orientated Javascipt.
 
-You can move the character with arrow keys: up, down, left, right. One key press moves character to next square. E.g. left arrow will move it one square left, etc.
+##How to `play` the game.
 
-Aim is to get to the top row.
+Click on the index.html file to start
+
+The aim of the game is to get to the top row.
 
 Character dies if it meets one of the bugs runnings across the screen. Character appears at start position (bottom of game field) and game starts again.
 
-The game uses keyboard input, so users use keyboard arrows to move the player around the board, trying to get to the top row. When the player gets to the top row. The Game Over box appears along with a button that says "Play Again"
+The game uses keyboard input, so users use keyboard arrows to move the player around the board, trying to get to the top row. When the player gets to the top row. The Game Over box appears along with a button that says "Play Again".
+
+Enjoy the game!
 
 What I learned
 

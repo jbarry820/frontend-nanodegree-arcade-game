@@ -1,3 +1,4 @@
+"use strict";
 var isGameOver;
 var TILE_WIDTH = 101;
 var TILE_HEIGHT = 83;
@@ -16,6 +17,7 @@ Character.prototype.render = function() {
 };
 
 function Enemy() {
+    'use strict';
     Character.call(this);
     this.sprite = 'images/enemy-bug.png';
 }
@@ -48,6 +50,7 @@ Enemy.prototype.update = function(dt) {
 };
 
 function Player() {
+    'use strict';
     Character.call(this);
     this.sprite = 'images/char-boy.png';
     this.moveable = true;
@@ -57,6 +60,7 @@ Player.prototype = Object.create(Character.prototype);
 Player.prototype.constructor = Player;
 
 Player.prototype.update = function() {
+    'use strict';
     if (this.moveable) {
         this.x = TILE_WIDTH * this.col;
         this.y = TILE_HEIGHT * this.row;
@@ -68,6 +72,7 @@ Player.prototype.update = function() {
 };
 
 Player.prototype.render = function() {
+    'use strict';
     if(isGameOver) {
         document.getElementById('game-over').style.display = 'none';//I added
         document.getElementById('game-over-overlay').style.display = 'none';//I added
@@ -79,6 +84,7 @@ Player.prototype.render = function() {
 };
 
 Player.prototype.reset = function() {
+    'use strict';
     this.col = 2;
     this.row = 5;
     this.x = TILE_WIDTH * this.col;
@@ -118,6 +124,7 @@ for (var i = 0; i < 4; i++) {
 var player = new Player();
 
 document.addEventListener('keyup', function(e) {
+    'use strict';
     var allowedKeys = {
         37: 'left',
         38: 'up',
@@ -129,10 +136,12 @@ document.addEventListener('keyup', function(e) {
 });
 
 function gameOver() {
+    'use strict';
     document.getElementById('game-over').style.display = 'block';
     document.getElementById('game-over-overlay').style.display = 'block';
 }
 
 function getRandomIntInclusive(min, max) {
+    'use strict';
     return Math.round(Math.floor(Math.random() * (max - min + 1)) + min);
 }
