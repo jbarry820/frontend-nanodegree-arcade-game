@@ -1,13 +1,18 @@
+//This file works with the index.html, the engine.js and the resource.js files. The purpose of this file
+//is to construct a game where the character dodges enemies and tries to get to the finish line. This was
+//written by Jim Barry on 6/2/2016. I wrote this for a project in the nanodegree program with Udacity.
 "use strict";
 var isGameOver;
 var TILE_WIDTH = 101;
 var TILE_HEIGHT = 83;
 
+//This sets up the Character to use with inheritance
 var Character = function() {
     'use strict';
     this.reset();
 };
 
+//This can be used by both the player and enemies
 Character.prototype.render = function() {
     'use strict';
     if(isGameOver) {
@@ -16,6 +21,7 @@ Character.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
+//This sets us the enemy - inheriting frome the Character
 function Enemy() {
     'use strict';
     Character.call(this);
@@ -26,6 +32,7 @@ Enemy.prototype = Object.create(Character.prototype);
 
 Enemy.prototype.constructor = Enemy;
 
+//This resets the enemy when needed
 Enemy.prototype.reset = function() {
     'use strict';
     this.col = -2;
@@ -35,6 +42,7 @@ Enemy.prototype.reset = function() {
     this.speed = getRandomIntInclusive(1, 6);
 };
 
+//This updates the enemy on a continuous basis
 Enemy.prototype.update = function(dt) {
     'use strict';
     this.x = (this.x + this.speed);
@@ -49,6 +57,7 @@ Enemy.prototype.update = function(dt) {
     }
 };
 
+//This sets us the player - inheriting frome the Character
 function Player() {
     'use strict';
     Character.call(this);
@@ -59,6 +68,7 @@ function Player() {
 Player.prototype = Object.create(Character.prototype);
 Player.prototype.constructor = Player;
 
+//This updates the enemy on a continuous basis
 Player.prototype.update = function() {
     'use strict';
     if (this.moveable) {
@@ -71,6 +81,7 @@ Player.prototype.update = function() {
     }
 };
 
+//This overwrites the render function from the Character
 Player.prototype.render = function() {
     'use strict';
     if(isGameOver) {
@@ -83,6 +94,7 @@ Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
+//This resets the player when needed
 Player.prototype.reset = function() {
     'use strict';
     this.col = 2;
@@ -92,6 +104,7 @@ Player.prototype.reset = function() {
     this.moveable = true;
 };
 
+//This handles the keyboard input
 Player.prototype.handleInput = function(key) {
     switch (key) {
         case "left":
@@ -135,12 +148,14 @@ document.addEventListener('keyup', function(e) {
     player.handleInput(allowedKeys[e.keyCode]);
 });
 
+//This happens when the game is over
 function gameOver() {
     'use strict';
     document.getElementById('game-over').style.display = 'block';
     document.getElementById('game-over-overlay').style.display = 'block';
 }
 
+//Used to obtain random numbers in other functions
 function getRandomIntInclusive(min, max) {
     'use strict';
     return Math.round(Math.floor(Math.random() * (max - min + 1)) + min);
