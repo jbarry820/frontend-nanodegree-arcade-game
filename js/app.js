@@ -46,7 +46,8 @@ Enemy.prototype.reset = function() {
 Enemy.prototype.update = function(dt) {
     'use strict';
     this.x = (this.x + this.speed);
-    this.y = 77 * this.row;
+    //this.y = 77 * this.row;
+    this.y = TILE_HEIGHT * (this.row - 0.25);
 
     if (this.x > 505) {
         this.reset();
@@ -73,7 +74,8 @@ Player.prototype.update = function() {
     'use strict';
     if (this.moveable) {
         this.x = TILE_WIDTH * this.col;
-        this.y = TILE_HEIGHT * this.row;
+        //this.y = TILE_HEIGHT * this.row;
+        this.y = TILE_HEIGHT * (this.row - 0.25);
     }
     if (this.y < TILE_HEIGHT && this.moveable) {
         this.moveable = false;
